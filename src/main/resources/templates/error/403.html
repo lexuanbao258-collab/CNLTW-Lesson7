@@ -1,1 +1,16 @@
-<!DOCTYPE html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments :: head}"></head><body><nav th:replace="~{fragments :: nav}"></nav><main class="container"><div th:replace="~{fragments :: alerts}"></div><section class="panel narrow error-page"><h1>403</h1><p>Phiên làm việc đã thay đổi. Vui lòng tải lại trang trước khi gửi form.</p><a class="button" th:href="@{/courses}">Về danh sách khóa học</a></section></main><footer>Course Management · Thực hành Công nghệ lập trình Web</footer><script th:src="@{/js/images.js}" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div th:replace="~{fragments :: alerts}"></div>
+    <section class="panel narrow error-page"><h1>403</h1>
+        <p>Phiên làm việc đã thay đổi. Vui lòng tải lại trang trước khi gửi form.</p><a class="button"
+                                                                                        th:href="@{/courses}">Về danh
+            sách khóa học</a></section>
+</main>
+<footer>Course Management · Thực hành Công nghệ lập trình Web</footer>
+<script th:src="@{/js/images.js}" defer></script>
+</body>
+</html>

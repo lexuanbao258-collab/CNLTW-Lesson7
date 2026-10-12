@@ -1,4 +1,26 @@
-<!DOCTYPE html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments :: head}"></head><body><nav th:replace="~{fragments :: nav}"></nav><main class="container"><div th:replace="~{fragments :: alerts}"></div><div class="page-heading"><div><h1 th:text="${categoryId == null ? 'Thêm loại khóa học' : 'Chỉnh sửa loại khóa học'}"></h1></div><a th:href="@{/categories}">Về danh sách</a></div>
-<form class="panel narrow" method="post" th:action="${categoryId == null ? '/categories' : '/categories/' + categoryId}" th:object="${categoryForm}">
-<label for="name">Tên loại khóa học *</label><input id="name" th:field="*{name}" maxlength="150" required><p class="field-error" th:errors="*{name}"></p>
-<label for="description">Mô tả</label><textarea id="description" rows="5" maxlength="2000" th:field="*{description}"></textarea><p class="field-error" th:errors="*{description}"></p><div class="actions"><button type="submit">Lưu loại khóa học</button><a class="button secondary" th:href="@{/categories}">Hủy</a></div></form></main><footer>Course Management · Thực hành Công nghệ lập trình Web</footer><script th:src="@{/js/images.js}" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div th:replace="~{fragments :: alerts}"></div>
+    <div class="page-heading">
+        <div><h1 th:text="${categoryId == null ? 'Thêm loại khóa học' : 'Chỉnh sửa loại khóa học'}"></h1></div>
+        <a th:href="@{/categories}">Về danh sách</a></div>
+    <form class="panel narrow" method="post"
+          th:action="${categoryId == null ? '/categories' : '/categories/' + categoryId}" th:object="${categoryForm}">
+        <label for="name">Tên loại khóa học *</label><input id="name" th:field="*{name}" maxlength="150" required>
+        <p class="field-error" th:errors="*{name}"></p>
+        <label for="description">Mô tả</label><textarea id="description" rows="5" maxlength="2000"
+                                                        th:field="*{description}"></textarea>
+        <p class="field-error" th:errors="*{description}"></p>
+        <div class="actions">
+            <button type="submit">Lưu loại khóa học</button>
+            <a class="button secondary" th:href="@{/categories}">Hủy</a></div>
+    </form>
+</main>
+<footer>Course Management · Thực hành Công nghệ lập trình Web</footer>
+<script th:src="@{/js/images.js}" defer></script>
+</body>
+</html>

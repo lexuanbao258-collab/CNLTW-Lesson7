@@ -5,7 +5,7 @@ document.querySelectorAll('img').forEach(image => {
         fallback.textContent = 'Không tải được ảnh';
         image.replaceWith(fallback);
     };
-    image.addEventListener('error', showFallback, { once: true });
+    image.addEventListener('error', showFallback, {once: true});
     if (image.complete && image.naturalWidth === 0) showFallback();
 });
 document.querySelectorAll('form[data-confirm]').forEach(form => {

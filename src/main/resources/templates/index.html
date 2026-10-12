@@ -1,1 +1,25 @@
-<!DOCTYPE html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments :: head}"></head><body><nav th:replace="~{fragments :: nav}"></nav><main class="container"><div th:replace="~{fragments :: alerts}"></div><section class="home"><div class="home-copy"><p class="intro">Không gian quản lý đào tạo</p><h1>Khóa học rõ ràng.<br>Quản lý dễ dàng.</h1><p>Quản lý danh mục, học phí, thời lượng và hình ảnh khóa học trong một nơi.</p><div class="actions"><a class="button" th:href="@{/courses}">Xem danh sách khóa học</a><a class="button secondary" th:href="@{/categories}">Quản lý loại khóa học</a></div></div><aside class="home-note"><h2>Sẵn sàng cho buổi học</h2><p>Tìm đúng khóa học bằng tên, loại, trạng thái và khoảng học phí.</p><hr><p><strong>30 giờ</strong><br>Ranh giới giữa khóa ngắn hạn và dài hạn.</p><a th:href="@{/courses/new}">Tạo khóa học mới</a></aside></section></main><footer>Course Management · Thực hành Công nghệ lập trình Web</footer><script th:src="@{/js/images.js}" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<nav th:replace="~{fragments :: nav}"></nav>
+<main class="container">
+    <div th:replace="~{fragments :: alerts}"></div>
+    <section class="home">
+        <div class="home-copy"><p class="intro">Không gian quản lý đào tạo</p>
+            <h1>Khóa học rõ ràng.<br>Quản lý dễ dàng.</h1>
+            <p>Quản lý danh mục, học phí, thời lượng và hình ảnh khóa học trong một nơi.</p>
+            <div class="actions"><a class="button" th:href="@{/courses}">Xem danh sách khóa học</a><a
+                    class="button secondary" th:href="@{/categories}">Quản lý loại khóa học</a></div>
+        </div>
+        <aside class="home-note"><h2>Sẵn sàng cho buổi học</h2>
+            <p>Tìm đúng khóa học bằng tên, loại, trạng thái và khoảng học phí.</p>
+            <hr>
+            <p><strong>30 giờ</strong><br>Ranh giới giữa khóa ngắn hạn và dài hạn.</p><a th:href="@{/courses/new}">Tạo
+                khóa học mới</a></aside>
+    </section>
+</main>
+<footer>Course Management · Thực hành Công nghệ lập trình Web</footer>
+<script th:src="@{/js/images.js}" defer></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.math.BigDecimal;
 
 @Component
@@ -19,9 +20,14 @@ public class DemoData implements CommandLineRunner {
     private final CourseCategoryRepository categories;
     private final CourseRepository courses;
     private final JdbcTemplate jdbc;
+
     public DemoData(CatalogService catalog, CourseCategoryRepository categories, CourseRepository courses, JdbcTemplate jdbc) {
-        this.catalog = catalog; this.categories = categories; this.courses = courses; this.jdbc = jdbc;
+        this.catalog = catalog;
+        this.categories = categories;
+        this.courses = courses;
+        this.jdbc = jdbc;
     }
+
     @Override
     @Transactional
     public void run(String... args) {
@@ -38,15 +44,21 @@ public class DemoData implements CommandLineRunner {
         seed("PostgreSQL", backend, "1200000", 20, true, 0);
         seed("Machine Learning cơ bản", data, "4200000", 60, false, 2);
     }
+
     private Long category(String name, String description) {
         CourseCategory category = new CourseCategory();
-        category.setName(name); category.setDescription(description);
+        category.setName(name);
+        category.setDescription(description);
         return catalog.saveCategory(null, category).getId();
     }
+
     private void seed(String name, Long categoryId, String fee, int hours, boolean active, int imageCount) {
         CourseForm form = new CourseForm();
-        form.setName(name); form.setCategoryId(categoryId); form.setTuitionFee(new BigDecimal(fee));
-        form.setDuration(hours); form.setIsActive(active);
+        form.setName(name);
+        form.setCategoryId(categoryId);
+        form.setTuitionFee(new BigDecimal(fee));
+        form.setDuration(hours);
+        form.setIsActive(active);
         form.setDescription("Khóa " + name + " gồm kiến thức nền tảng, bài thực hành và mini project.");
         var course = catalog.saveCourse(null, form);
         for (int i = 1; i <= imageCount; i++)
