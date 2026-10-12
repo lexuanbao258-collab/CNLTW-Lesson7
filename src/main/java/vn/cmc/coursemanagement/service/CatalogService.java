@@ -1,5 +1,7 @@
 package vn.cmc.coursemanagement.service;
 
+import lombok.RequiredArgsConstructor;
+
 import vn.cmc.coursemanagement.controller.CourseForm;
 import vn.cmc.coursemanagement.entity.*;
 import vn.cmc.coursemanagement.repository.*;
@@ -12,16 +14,12 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class CatalogService {
     private final CourseRepository courses;
     private final CourseCategoryRepository categories;
     private final CourseImageRepository images;
 
-    public CatalogService(CourseRepository courses, CourseCategoryRepository categories, CourseImageRepository images) {
-        this.courses = courses;
-        this.categories = categories;
-        this.images = images;
-    }
 
     public List<CourseCategory> categories() {
         return categories.findAll(Sort.by("id"));

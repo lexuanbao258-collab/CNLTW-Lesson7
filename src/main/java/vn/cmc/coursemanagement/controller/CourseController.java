@@ -1,5 +1,7 @@
 package vn.cmc.coursemanagement.controller;
 
+import lombok.RequiredArgsConstructor;
+
 import jakarta.validation.Valid;
 import vn.cmc.coursemanagement.repository.CourseFilter;
 import vn.cmc.coursemanagement.service.*;
@@ -12,12 +14,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 @Controller
 @RequestMapping("/courses")
+@RequiredArgsConstructor
 public class CourseController {
     private final CatalogService catalog;
 
-    public CourseController(CatalogService catalog) {
-        this.catalog = catalog;
-    }
 
     @GetMapping
     public String list(@Valid @ModelAttribute("filter") CourseFilter filter, BindingResult errors, Model model) {

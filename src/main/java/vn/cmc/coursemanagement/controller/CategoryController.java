@@ -1,5 +1,7 @@
 package vn.cmc.coursemanagement.controller;
 
+import lombok.RequiredArgsConstructor;
+
 import jakarta.validation.Valid;
 import vn.cmc.coursemanagement.entity.CourseCategory;
 import vn.cmc.coursemanagement.service.*;
@@ -13,12 +15,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 @Controller
 @RequestMapping("/categories")
+@RequiredArgsConstructor
 public class CategoryController {
     private final CatalogService catalog;
 
-    public CategoryController(CatalogService catalog) {
-        this.catalog = catalog;
-    }
 
     @InitBinder("categoryForm")
     public void allowFields(WebDataBinder binder) {
